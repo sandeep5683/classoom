@@ -1,0 +1,1 @@
+az storage account create --name "sanstorage" --resource-group "storage" --access-tier "Hot" -l "centralus" --sku "Standard_LRS"

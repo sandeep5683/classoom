@@ -1,0 +1,2 @@
+az group create --location "CentralUS" --name "portdemo"
+

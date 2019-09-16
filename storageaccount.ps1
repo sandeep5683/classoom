@@ -1,0 +1,1 @@
+New-AzStorageAccount -ResourceGroupName storage -Name sansuth78 -Location centralus -SkuName Standard_RAGRS -Kind StorageV2

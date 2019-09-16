@@ -1,0 +1,7 @@
+az network vnet create --name "networkdemo" --resource-group "networkingdemo" --address-prefixes "192.168.0.0/16" --location "centralus" --subnet-name "subnet1" --subnet-prefixes "192.168.0.0/24"
+
+az network vnet subnet create --name "subnet2" --address-prefixes "192.168.1.0/24" --resource-group "networkingdemo" --vnet-name "networkdemo"
+
+az network nsg create --name "vmnsgcli" --resource-group "vmdemo"
+
+az network nsg rule create --name "rule1" --nsg-name "vmnsgcli" --priority 300 --resource-group "vmdemo" --access "allow" --description "allow hhtp" --destination-address-prefixes "*" --source-address-prefixes "*" --destination-port-ranges "80" --direction "inbound" --protocol "tcp" --source-port-ranges "*"
