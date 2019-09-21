@@ -1,0 +1,9 @@
+az group create -n group1 -l centralus
+
+az group create -n group2 -l westus
+
+az group create -n group3 -l centralindia
+
+az sql server create -n sansql7 -g group1 -l centralus --admin-user ssdevops --admin-password San-suth@123
+
+az sql db create -n sandb -g group1 --server sansql7 --edition basic --service-objective basic --zone-redundant false

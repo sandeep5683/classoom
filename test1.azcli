@@ -1,0 +1,13 @@
+az group create -n group1 -l centralus
+az group create -n group2 -l southindia
+az group create -n group3 -l westus
+az storage account create --name "lncli1" --resource-group "group1" -l "centralus" --sku "Standard_LRS"
+az storage account create --name "lncli2" --resource-group "group2" -l "centralus" --sku "Standard_LRS"
+az storage account create --name "lncli3" --resource-group "group3" -l "westus" --sku "Standard_LRS"
+az network vnet create --name "vnet1" --resource-group "group1" --address-prefixes "192.168.0.0/16" --location "centralus" --subnet-name "subnet1" --subnet-prefixes "192.168.0.0/24"
+az network vnet create --name "vnet2" --resource-group "group2" --address-prefixes "192.168.0.0/16" --location "southindia" --subnet-name "subnet2" --subnet-prefixes "192.168.0.0/24"
+az network vnet create --name "vnet3" --resource-group "group3" --address-prefixes "192.168.0.0/16" --location "westus" --subnet-name "subnet3" --subnet-prefixes "192.168.0.0/24"
+az vm create --resource-group "group1" --name "sanvm3" --image "Win2012R2Datacenter" --admin-username "ssdevops" --admin-password "San-suth@123"
+az sql server create --admin-user "ssdevops" --admin-password "San-suth@123" -n sansql123 -g group2
+az sql db create -n "sandb" -g "group2" --server "sansql123" --edition "basic" --service-objective "basic" --zone-redundant "false"
+az vm create --resource-group "group3" --name "sanvm5" --image "UbuntuLTS" --admin-username "ssdevops" --admin-password "San-suth@123"
